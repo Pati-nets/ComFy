@@ -1,0 +1,124 @@
+\documentclass[a4paper]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{paralist}
+\pgfplotsset{compat=1.16}
+
+\begin{document}
+
+\section*{Chosen Discovery Algorithms}
+For this factor analysis, you chose the following miners to discover process models:
+\begin{compactitem}
+\item Heuristics miner
+\end{compactitem}
+
+This means, for each input event log, the program discovered models using each of the aforementioned discovery algorithms.
+For the resulting Petri nets, it calculated the complexity score of each selected measure, which formed the population.
+
+You chose to analyze the following complexity measures:
+\begin{compactitem}
+\item Size
+\item Connector Mismatch
+\item Connector Heterogeneity
+\item Token split
+\item Control flow complexity
+\item Separability
+\item Average connector degree
+\item Maximum connector degree
+\item Sequentiality
+\item Coefficient of network connectivity
+\item Density
+\item Number of duplicate tasks
+\item Number of empty sequence flows
+\end{compactitem}
+
+\section*{Validity of the Factor Analysis}
+Your sample size in this analysis was $288$.
+It is recommended to have a sample size of at least $5 \cdot 13 = 65$.
+
+Bartlett's test of sphericity returned a $\chi^2$ value of $7320.777018953014$ and a $p$-value of $0.0$.
+This means, the variables are probably correlated and we can perform a factor analysis.
+
+The measure of sampling adequacy (MSA) returned the following results:
+\begin{compactitem}
+\item Connector Heterogeneity: $0.6716$
+\item Token split: $0.6526$
+\item Control flow complexity: $0.7452$
+\item Density: $0.8282$
+\item overall MSA: $0.7177844776293316$
+\end{compactitem}
+
+\noindent
+During the analysis, the MSA values of the following complexity measures were too low:
+\begin{compactitem}
+\item Average connector degree: $0.5533$
+\item Size: $0.5884$
+\item Sequentiality: $0.56$
+\item Coefficient of network connectivity: $0.5424$
+\item Number of duplicate tasks: $0.5965$
+\item Separability: $0.4744$
+\item Maximum connector degree: $0.4569$
+\item Connector Mismatch: $0.5623$
+\end{compactitem}
+These complexity measures were left out of the analysis to produce dependable results.
+
+\section*{Chosen Number of Factors}
+The Scree test resulted in the following Eigenvalue plot:
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[xtick=data,width=15cm,height=8cm]
+\addplot [draw=cyan!50!blue, mark=*] coordinates { (1,0.7847) (2,0.1466) (3,0.0493) (4,0.0195)};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+You choose to set the number of expected factors to $4$.
+
+\section*{Descriptive Statistics}
+\begin{center}
+\begin{tabular}{lrrrrr}
+\toprule
+ & Mean & Median & Std & Min & Max \\
+\midrule
+Size & 119.322917 & 128.000000 & 34.228020 & 61.000000 & 182.000000 \\
+Connector Mismatch & 3.381944 & 3.000000 & 2.323930 & 0.000000 & 12.000000 \\
+Connector Heterogeneity & 0.405783 & 0.391244 & 0.240592 & 0.000000 & 0.890492 \\
+Token split & 1.072917 & 1.000000 & 1.045096 & 0.000000 & 5.000000 \\
+Control flow complexity & 30.128472 & 29.500000 & 13.299321 & 8.000000 & 64.000000 \\
+Separability & 0.951105 & 0.960935 & 0.027095 & 0.863636 & 0.978022 \\
+Average connector degree & 3.347663 & 3.306020 & 0.227714 & 3.000000 & 4.000000 \\
+Maximum connector degree & 4.906250 & 5.000000 & 0.915353 & 3.000000 & 7.000000 \\
+Sequentiality & 0.586583 & 0.583893 & 0.093878 & 0.348837 & 0.775610 \\
+Coefficient of network connectivity & 1.138041 & 1.136364 & 0.040117 & 1.048780 & 1.234940 \\
+Density & 0.021289 & 0.017729 & 0.006938 & 0.013889 & 0.035354 \\
+Number of duplicate tasks & 40.072917 & 41.000000 & 14.583589 & 15.000000 & 73.000000 \\
+Number of empty sequence flows & 0.000000 & 0.000000 & 0.000000 & 0.000000 & 0.000000 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section*{Results of the Factor Analysis}
+\begin{center}
+\begin{tabular}{ccccc} \toprule 
+ & Factor 1 & Factor 2 & Factor 3 & Factor 4 \\ \midrule 
+Connector Heterogeneity & $0.808$ & $0.5708$ & \textcolor{lightgray}{$-0.1278$} & \textcolor{lightgray}{$0.0$} \\ 
+Token split & $0.8845$ & \textcolor{lightgray}{$0.2805$} & \textcolor{lightgray}{$0.0552$} & \textcolor{lightgray}{$0.0$} \\ 
+Control flow complexity & \textcolor{lightgray}{$-0.2664$} & $-0.818$ & \textcolor{lightgray}{$0.0663$} & \textcolor{lightgray}{$0.0$} \\ 
+Density & $0.4847$ & $0.7801$ & \textcolor{lightgray}{$0.1303$} & \textcolor{lightgray}{$0.0$} \\ 
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section*{Communalities}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[ybar,symbolic x coords={Connector Heterogeneity,Token split,Control flow complexity,Density},xtick=data,xticklabel style={rotate=45, anchor=east},nodes near coords={\pgfmathprintnumber{\pgfplotspointmeta}},width=15cm,height=8cm]
+\addplot [draw=cyan!50!blue, fill=cyan!50!blue] plot coordinates { (Connector Heterogeneity,0.995) (Token split,0.864) (Control flow complexity,0.7445) (Density,0.8605)};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+\end{document}
