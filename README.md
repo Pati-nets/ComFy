@@ -1,4 +1,4 @@
-# anaLOG: The friendly log and model analyzer #
+# ComFy: A tool to perform factor analyses on complexity measures#
 This project accompanies the paper *Important Factors: Complexity Dimensions for Petri Nets*.
 With this tool, you can reproduce the results of the paper or perform factor analyses for the complexity of Petri nets on your own data.
 
