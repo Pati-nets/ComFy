@@ -11,7 +11,7 @@ def print_welcome_message():
 
 def ask_user_for_complexity_measures(question: str):
     # collect all possible complexity measures.
-    measures = [questionary.Choice(title=str(measure), value=measure) for measure in ModelComplexityMeasures.analyzed_model_complexity_measures]
+    measures = [questionary.Choice(title=str(measure), value=measure) for measure in ModelComplexityMeasures.all_model_complexity_measures]
     # ask the user to choose a subset of these complexity measures.
     model_measures = questionary.checkbox(question, choices=measures).ask()
     return model_measures

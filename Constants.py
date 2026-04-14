@@ -4,7 +4,7 @@ from pathlib import Path
 INPUT_PATH = "./input-logs/"
 OUTPUT_PATH = "./output/"
 LATEX_REPORT_PATH = "./output/report.tex"
-prom4py_script_path = Path('/home/schalk/ProM/prom4py/ProM4Py/ProM4Py.sh')
+prom4py_script_path = Path('path-to-your-ProM4Py-distribution')
 
 # constants for measure calculation timeouts and abort behavior
 timeout_seconds = 5

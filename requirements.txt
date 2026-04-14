@@ -1,0 +1,14 @@
+BitVector
+factor_analyzer
+lempel_ziv_complexity
+math
+matplotlib
+networkx
+numpy
+pandas
+pathlib
+pm4py
+questionary
+sklearn
+tabulate
+tqdm
